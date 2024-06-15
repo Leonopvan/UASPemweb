@@ -15,7 +15,7 @@ const db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: '',
-    database: 'uas_pemweb' // Update this to match your database name
+    database: 'uas_pemweb'
 });
 
 db.connect((err) => {
@@ -36,7 +36,6 @@ app.get('/', (req, res) => {
     const sql = 'SELECT * FROM berita';
     db.query(sql, (err, results) => {
         if (err) throw err;
-        // Ensure keywords are arrays
         const news = results.map(item => {
             item.keywords = Array.isArray(item.keywords) ? item.keywords : item.keywords.split(',');
             return item;
@@ -46,5 +45,5 @@ app.get('/', (req, res) => {
 });
 
 app.listen(port, () => {
-    console.log(`Server berjalan di http://localhost:${port}`);  // Fixed line
+    console.log(`Server berjalan di http://localhost:${port}`);
 });
