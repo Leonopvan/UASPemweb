@@ -26,6 +26,7 @@ const NewsList = () => {
         news.map((item) => (
           <div key={item.id} className="news-item">
             <h2>{item.judul_berita}</h2>
+            <p>{item.jenis_berita}</p>
             <p>{item.ringkasan}</p>
             <p>{Array.isArray(item.keywords) ? item.keywords.join(', ') : item.keywords}</p>
           </div>
