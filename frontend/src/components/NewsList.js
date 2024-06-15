@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import './styles.css'; // Impor file CSS
-
+import './styles.css'; 
 const NewsList = () => {
   const [news, setNews] = useState([]);
 
   useEffect(() => {
     const fetchNews = async () => {
       try {
-        const response = await axios.get('http://192.168.18.12:5000/news'); // Ganti dengan IP yang sesuai
-        console.log('API response:', response.data); // Log response
+        const response = await axios.get('http://192.168.18.12:5000/news');
+        console.log('API response:', response.data); 
         setNews(response.data);
       } catch (error) {
         console.error('Error fetching the news data:', error);
